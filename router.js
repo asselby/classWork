@@ -1,25 +1,9 @@
-var handler = require("./handlers")
-var url = require("url")
+var express = require('express')
+var router = express.Router()
+var blog =  require('./controllers/blog')
 
-var handle={}
-handle["/"]=handler.start
-handle["/start"]=handler.start
-handle["/upload"]=handler.upload
-
-function route(request, response){
-    var pathname = url.parse(request.url).pathname
-    console.log(pathname)
-
-    if (typeof handle[pathname]==='function')
-    {
-        handle[pathname](response)
-
-    }
-        else 
-    {
-        console.log("No request handler found for" + pathname)
-    }
-}
+router.get('/',  blog.show)
+router.get('/create',  blog.create)
 
 
-exports.route = route
+module.exports = router

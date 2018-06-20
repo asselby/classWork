@@ -1,0 +1,19 @@
+doctype html
+html(lang="en")
+    head
+        link(rel="stylesheet", href="/css/bootstrap.css")
+        title #{title}
+    body
+        form(action="create" method="post")    
+            h1 #{message}
+            div.form-group 
+                 input.form-control(type="text", name="title")
+             div 
+                 input(type="text", name="author")
+            div    
+                 textarea(name="body", cols="30", rows="10")
+            div 
+                label(for="hidden") Hide
+                 input#hidden(type="checkbox", name="hidden" ) 
+            div 
+                 button Send   
